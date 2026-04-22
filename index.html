@@ -3,106 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>প্রফেশনাল রিপোর্ট পোর্টাল</title>
+    <title>ElectroBazar - রিপোর্ট পোর্টাল</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            /* ব্যাকগ্রাউন্ডে একটি সুন্দর ইমেজ ব্যবহার করা হয়েছে */
-            background: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
         }
 
-        /* কাঁচের মতো স্বচ্ছ বক্স ডিজাইন */
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px); /* ঝাপসা ইফেক্ট */
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            width: 90%;
-            max-width: 420px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* লোগো ডিজাইন */
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: #764ba2;
-            border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+        /* ১. নীল অ্যানাউন্সমেন্ট বার */
+        .top-bar {
+            background-color: #1a73e8;
             color: white;
-            font-size: 30px;
+            padding: 10px;
+            text-align: center;
             font-weight: bold;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+            font-size: 14px;
         }
 
-        h2 { color: #2d3436; margin-bottom: 5px; }
-        p { color: #636e72; font-size: 14px; margin-bottom: 25px; }
+        /* ২. ন্যাভিগেশন বার */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area { display: flex; align-items: center; }
+        .logo-icon { 
+            width: 40px; height: 40px; 
+            background: #4b0082; color: white; 
+            border-radius: 8px; display: flex; 
+            justify-content: center; align-items: center;
+            margin-right: 10px; font-weight: bold;
+        }
+        .brand-text h3 { margin: 0; font-size: 18px; color: #4b0082; }
+        .brand-text span { font-size: 11px; color: #777; }
+
+        .nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; }
+
+        /* ৩. ফর্ম সেকশন (মাঝের অংশ) */
+        .main-content {
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .report-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
 
         input, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin: 8px 0;
-            border: 1.5px solid #dfe6e9;
-            border-radius: 12px;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; padding: 12px; margin: 10px 0;
+            border: 1px solid #ddd; border-radius: 10px;
             box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.8);
         }
 
-        input:focus, textarea:focus {
-            border-color: #764ba2;
+        .btn-submit {
+            background: #1a73e8; color: white; border: none;
+            padding: 15px; width: 100%; border-radius: 10px;
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+
+        .btn-submit:hover { background: #1557b0; }
+
+        /* ৪. নিচের অংশ (Footer) - যা সাইটকে লম্বা করবে */
+        .extra-section {
             background: #fff;
+            padding: 60px 5%;
+            margin-top: 40px;
+            text-align: center;
         }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 15px;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        footer {
+            background: #333; color: white;
+            padding: 20px; text-align: center;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="logo">R</div> 
-    
-    <h2>পাবলিক রিপোর্ট পোর্টাল</h2>
-    <p>আপনার অভিযোগ বা রিপোর্টটি সাবমিট করুন</p>
-    
-    <form action="https://formspree.io/f/YOUR_EMAIL_HERE" method="POST">
-        <input type="text" name="Name" placeholder="আপনার নাম" required>
-        <input type="email" name="Email" placeholder="আপনার ইমেইল" required>
-        <textarea name="Message" placeholder="রিপোর্ট বিস্তারিত..." rows="4" required></textarea>
-        
-        <button type="submit">জমা দিন</button>
-    </form>
-</div>
+    <div class="top-bar">
+        নিশ্চিন্তে ব্যবহার করুন—আমরা দিচ্ছি পুরো ২ বছরের রিপ্লেসমেন্ট গ্যারান্টি।
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon">E</div>
+            <div class="brand-text">
+                <h3>ElectroBazar</h3>
+                <span>Premium Shopping Experience</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">About Us</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="report-card">
+            <h2>পাবলিক রিপোর্ট ফর্ম</h2>
+            <p>আপনার তথ্য আমাদের কাছে সুরক্ষিত।</p>
+            <form action="https://formspree.io/f/YOUR_EMAIL_HERE" method="POST">
+                <input type="text" name="Name" placeholder="আপনার নাম" required>
+                <input type="email" name="Email" placeholder="ইমেইল অ্যাড্রেস" required>
+                <textarea name="Message" rows="5" placeholder="রিপোর্ট বিস্তারিত লিখুন..." required></textarea>
+                <button type="submit" class="btn-submit">জমা দিন</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="extra-section">
+        <h2>আমাদের সেবা সম্পর্কে জানুন</h2>
+        <p>আমরা ২৪/৭ কাস্টমার সাপোর্ট প্রদান করি। আপনার যেকোনো সমস্যায় আমরা পাশে আছি।</p>
+    </div>
+
+    <footer>
+        © ২০২৬ ElectroBazar | সর্বস্বত্ব সংরক্ষিত।
+    </footer>
 
 </body>
 </html>
